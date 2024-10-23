@@ -1,8 +1,10 @@
 package main
 
 import(
+	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 )
 
 
@@ -12,6 +14,7 @@ func home(w http.ResponseWriter, r *http.Request){
 }
 
 func snippetView(w http.ResponseWriter, r *http.Request){
+	id, err := strconv.Atoi(r.PathValue("id"))
 	log.Print("Serving snippet view")
 }
 
@@ -22,10 +25,11 @@ func snippetCreate(w http.ResponseWriter, r *http.Request){
 func main(){
 	mux := http.NewServeMux()
 	mux.HandleFunc("/{$}", home)
-	mux.HandleFunc("/snippet/view", snippetView)
+	mux.HandleFunc("/snippet/view/{id}", snippetView)
 	mux.HandleFunc("/snippet/create", snippetCreate)
-	log.Print("Starting server on :8000")
+	mux.HandleFunc("/items/{item}", Item)
+	log.Print("Starting server on :4000")
 
-	err := http.ListenAndServe(":8000", mux)
+	err := http.ListenAndServe(":4000", mux)
 	log.Fatal(err)
 }
