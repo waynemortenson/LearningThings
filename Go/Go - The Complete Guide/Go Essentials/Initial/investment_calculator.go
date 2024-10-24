@@ -1,6 +1,14 @@
 package main
 
+import (
+	"fmt"
+	"investment-calculator/user"
+)
+
 func main() {
+	var userX user.User
+	userX, err := user.New("Wayne", "Mortenson")
+	fmt.Println(userX.GetUserName(), err)
 }
 
 /*
