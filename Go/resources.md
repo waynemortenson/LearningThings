@@ -1,6 +1,6 @@
 # Resources
 A list of resources to learn the Go programming language
-
+(See Media)
 
 ## Foundations in Go
 #### Rough Path
