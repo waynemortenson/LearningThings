@@ -14,13 +14,22 @@ func (s *Stack[T]) Push(val T) {
 	s.vals = append(s.vals, val)
 }
 
-func (s *Stack[T]) Pop() (T, bool){
-	if len(s.vals) > 0{
-		s.vals.
-	}
-}
+// func (s *Stack[T]) Pop() (T, bool){
+// 	if len(s.vals) > 0{
+// 		s.vals.
+// 	}
+// }
 
 func main() {
+	friends := [3]string{"A", "B", "C"}
+
+	for i, v := range friends {
+		friends[1] = "New"
+		fmt.Println(i, v)
+		if i == 1 {
+			fmt.Println(friends[i], v)
+		}
+	}
 }
 
 func speed() {
